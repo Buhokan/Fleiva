@@ -1,0 +1,129 @@
+:root {
+  --morado-oscuro: #20002c;
+  --fondo-tarjeta: #3b0038;
+  --fondo-tarjeta2: #5c0064;
+  --morado-claro: #6c0097;
+  --morado-claro2: #8b00c2;
+  --fondo-navegador: #280036;
+  --color-fondo: #17041b;
+  --verde-neon: #00ff0048;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: aliceblue;
+}
+
+header {
+  text-align: center;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+header h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  margin-bottom: 0.5rem;
+}
+
+header h2 {
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+}
+
+.logo {
+  text-align: center;
+  padding: clamp(0.5rem, 2vw, 1rem);
+}
+
+.logo img {
+  width: clamp(12rem, 50vw, 35rem);
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 2px #ff0adecc);
+}
+
+nav {
+  background: var(--fondo-navegador);
+  padding: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px #0000004d;
+}
+
+.navegador {
+  background: linear-gradient(135deg, var(--morado-claro) 0%, var(--morado-claro2) 100%);
+  color: white;
+  border: none;
+  padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1.2rem, 4vw, 2rem);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  cursor: pointer;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px #00ff623f;
+  text-decoration: none;
+}
+
+.navegador:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px #00ff6266;
+}
+
+section {
+  max-width: 1200px;
+  margin: clamp(1rem, 3vw, 3rem) auto;
+  padding: clamp(0.5rem, 2vw, 2rem);
+}
+
+section h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  text-transform: uppercase;
+}
+
+.tarjetas_bebidas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-top: 2rem;
+}
+
+.tarjeta {
+  background: linear-gradient(135deg, var(--fondo-tarjeta) 0%, var(--fondo-tarjeta2) 100%);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--verde-neon);
+  transition: all 0.3s ease;
+}
+
+/* .tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px #00ff6233;
+  border-color: var(--verde-neon);
+} */
+
+.tarjeta h3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta p {
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
+.precio {
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  font-weight: bold;
+  color: #00ff62;
+}
