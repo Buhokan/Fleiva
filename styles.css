@@ -9,43 +9,94 @@
   --verde-neon: #00ff0048;
 }
 
+/* ========== FUENTES ========== */
+@font-face {
+  font-family: 'UrbanBlack';
+  src: url('fonts/Urban_Black.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'UrbanSign';
+  src: url('fonts/UrbanSign.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Skate';
+  src: url('fonts/SkateHipHopTag.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ========== RESET Y BASE ========== */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-body {
-  background-color: var(--color-fondo);
-  color: aliceblue;
+header {
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+  url(imagenes/Fondo\ header.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
+/* .logo {
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+  url(imagenes/Fondo\ header.jpg);
+  background-size: cover;
+  background-position: center;
+} */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    color: aliceblue;
+    background: 
+        radial-gradient(ellipse at 30% 40%, rgba(75, 0, 130, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 60%, rgba(0, 139, 139, 0.08) 0%, transparent 50%),
+        linear-gradient(to bottom, #0a0a0f, #12111d);
+}
+
+body {
+  background-attachment: fixed;
+}
+
+
+
+/* ========== HEADER ========== */
 header {
   text-align: center;
   padding: clamp(0.5rem, 2vw, 1.5rem);
 }
 
 header h1 {
-  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-family: 'Skate', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
   margin-bottom: 0.5rem;
 }
 
-header h2 {
+.lema {
   font-size: clamp(0.9rem, 2.5vw, 1.2rem);
 }
 
+/* ========== LOGO ========== */
 .logo {
   text-align: center;
   padding: clamp(0.5rem, 2vw, 1rem);
 }
 
 .logo img {
-  width: clamp(12rem, 50vw, 35rem);
-  max-width: 100%;
+  width: clamp(18rem, 80vw, 35rem);
   height: auto;
-  filter: drop-shadow(0 0 2px #ff0adecc);
+  filter: drop-shadow(0 0 2px #deff23f5);
 }
 
+/* ========== NAVEGACIÓN ========== */
 nav {
   background: var(--fondo-navegador);
   padding: 1rem;
@@ -53,7 +104,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px #0000004d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .navegador {
@@ -67,15 +118,18 @@ nav {
   transition: all 0.3s ease;
   font-weight: bold;
   text-transform: uppercase;
-  box-shadow: 0 2px 8px #00ff623f;
+  box-shadow: 0 2px 8px rgba(0, 255, 98, 0.25);
   text-decoration: none;
+  display: inline-block;
+  margin: 0 0.5rem;
 }
 
 .navegador:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px #00ff6266;
+  box-shadow: 0 4px 12px rgba(0, 255, 98, 0.4);
 }
 
+/* ========== SECCIONES ========== */
 section {
   max-width: 1200px;
   margin: clamp(1rem, 3vw, 3rem) auto;
@@ -89,41 +143,63 @@ section h2 {
   text-transform: uppercase;
 }
 
-.tarjetas_bebidas {
+/* ========== TARJETAS DE BEBIDAS ========== */
+.tarjetas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: clamp(1rem, 3vw, 2rem);
   margin-top: 2rem;
 }
 
-.tarjeta {
+.tarjeta-bebida {
   background: linear-gradient(135deg, var(--fondo-tarjeta) 0%, var(--fondo-tarjeta2) 100%);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   padding: clamp(1rem, 3vw, 1.5rem);
   border: 1px solid var(--verde-neon);
+  transform: translateY(0);
+  will-change: transform;
   transition: all 0.3s ease;
 }
 
-/* .tarjeta:hover {
+.tarjeta-bebida:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px #00ff6233;
-  border-color: var(--verde-neon);
-} */
+  box-shadow: 0 8px 20px rgba(0, 255, 98, 0.2);
+  border-color: #00ff62;
+}
 
-.tarjeta h3 {
+.tarjeta-bebida h3 {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
   margin-bottom: 0.5rem;
 }
 
-.tarjeta p {
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
-  margin-bottom: 1rem;
-  color: #e0e0e0;
-}
 
 .precio {
   font-size: clamp(1.1rem, 3vw, 1.3rem);
   font-weight: bold;
   color: #00ff62;
+  display: block;
+  margin-top: auto;
+}
+
+.subtitulo {
+  background: var(--fondo-navegador);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== SECCIÓN EVENTOS ========== */
+.eventos {
+  min-height: 300px;
+  /* Agrega estilos específicos para eventos aquí */
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .navegador {
+    display: block;
+    margin: 0.5rem auto;
+    max-width: 200px;
+  }
 }
