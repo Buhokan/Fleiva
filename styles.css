@@ -1,15 +1,45 @@
+/* ========================================
+   VARIABLES CSS
+   ======================================== */
 :root {
+  /* Colores */
   --morado-oscuro: #20002c;
-  --fondo-tarjeta: #3b0038;
-  --fondo-tarjeta2: #5c0064;
   --morado-claro: #6c0097;
   --morado-claro2: #8b00c2;
   --fondo-navegador: #280036;
   --color-fondo: #17041b;
-  --verde-neon: #00ff0048;
+  --verde-neon: #ea00ff48;
+  --fondo-tarjeta: #0000004d;
+  --fondo-tarjeta2: #1f0b201a;
+  --precio-color: #eb00eb;
+  
+  /* Espaciado */
+  --spacing-xs: clamp(0.5rem, 2vw, 1rem);
+  --spacing-sm: clamp(1rem, 3vw, 2rem);
+  --spacing-md: clamp(1rem, 3vw, 3rem);
+  --spacing-lg: clamp(1.5rem, 4vw, 4rem);
+  
+  /* Tipografía */
+  --font-size-xs: clamp(0.85rem, 2vw, 1rem);
+  --font-size-sm: clamp(0.9rem, 2.5vw, 1.2rem);
+  --font-size-md: clamp(1.1rem, 3vw, 1.3rem);
+  --font-size-lg: clamp(1.2rem, 3vw, 1.5rem);
+  --font-size-xl: clamp(1.5rem, 4vw, 2.5rem);
+  --font-size-xxl: clamp(2.5rem, 8vw, 5rem);
+  
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 20px rgba(255, 0, 255, 0.2);
+  --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 4px 12px rgba(255, 0, 255, 0.4);
+  
+  /* Transiciones */
+  --transition-base: all 0.3s ease;
 }
 
-/* ========== FUENTES ========== */
+/* ========================================
+   FUENTES
+   ======================================== */
 @font-face {
   font-family: 'UrbanBlack';
   src: url('fonts/Urban_Black.otf') format('opentype');
@@ -31,175 +61,236 @@
   font-style: normal;
 }
 
-/* ========== RESET Y BASE ========== */
-* {
+/* ========================================
+   RESET Y BASE
+   ======================================== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
-}
-
-header {
-  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-  url(imagenes/Fondo\ header.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-/* .logo {
-  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-  url(imagenes/Fondo\ header.jpg);
-  background-size: cover;
-  background-position: center;
-} */
-
-body {
-    width: 100vw;
-    height: 100vh;
-    color: aliceblue;
-    background: 
-        radial-gradient(ellipse at 30% 40%, rgba(75, 0, 130, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 60%, rgba(0, 139, 139, 0.08) 0%, transparent 50%),
-        linear-gradient(to bottom, #0a0a0f, #12111d);
+  padding: 0;
 }
 
 body {
+  width: 100vw;
+  min-height: 100vh;
+  color: aliceblue;
+  background: 
+    radial-gradient(ellipse at 30% 40%, rgba(75, 0, 130, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 60%, rgba(0, 139, 139, 0.08) 0%, transparent 50%),
+    linear-gradient(to bottom, #0a0a0f, #12111d);
   background-attachment: fixed;
+  overflow-x: hidden;
 }
 
-
-
-/* ========== HEADER ========== */
+/* ========================================
+   HEADER
+   ======================================== */
 header {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url(imagenes/Fondo\ header.jpg);
+  background-size: cover;
+  background-position: center;
   text-align: center;
-  padding: clamp(0.5rem, 2vw, 1.5rem);
+  padding: var(--spacing-xs);
 }
 
 header h1 {
   font-family: 'Skate', sans-serif;
-  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-size: var(--font-size-xxl);
   margin-bottom: 0.5rem;
 }
 
 .lema {
-  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  font-size: var(--font-size-sm);
 }
 
-/* ========== LOGO ========== */
+/* ========================================
+   LOGO
+   ======================================== */
 .logo {
   text-align: center;
-  padding: clamp(0.5rem, 2vw, 1rem);
+  padding: var(--spacing-xs);
 }
 
 .logo img {
   width: clamp(18rem, 80vw, 35rem);
   height: auto;
-  filter: drop-shadow(0 0 2px #deff23f5);
+  filter: drop-shadow(0 0 2px #dcff16);
 }
 
-/* ========== NAVEGACIÓN ========== */
+/* ========================================
+   NAVEGACIÓN
+   ======================================== */
 nav {
   background: var(--fondo-navegador);
   padding: 1rem;
   text-align: center;
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .navegador {
+  display: inline-block;
   background: linear-gradient(135deg, var(--morado-claro) 0%, var(--morado-claro2) 100%);
   color: white;
   border: none;
   padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1.2rem, 4vw, 2rem);
-  font-size: clamp(0.85rem, 2vw, 1rem);
-  cursor: pointer;
-  border-radius: 25px;
-  transition: all 0.3s ease;
+  font-size: var(--font-size-xs);
   font-weight: bold;
   text-transform: uppercase;
-  box-shadow: 0 2px 8px rgba(0, 255, 98, 0.25);
   text-decoration: none;
-  display: inline-block;
+  cursor: pointer;
+  border-radius: 25px;
   margin: 0 0.5rem;
+  box-shadow: 0 2px 8px rgba(163, 0, 168, 0.25);
+  transition: var(--transition-base);
+  will-change: transform;
 }
 
 .navegador:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 255, 98, 0.4);
+  box-shadow: var(--shadow-glow);
 }
 
-/* ========== SECCIONES ========== */
+/* ========================================
+   SECCIONES
+   ======================================== */
 section {
   max-width: 1200px;
-  margin: clamp(1rem, 3vw, 3rem) auto;
-  padding: clamp(0.5rem, 2vw, 2rem);
+  margin: var(--spacing-md) auto;
+  padding: var(--spacing-sm);
 }
 
 section h2 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: var(--font-size-xl);
   text-align: center;
-  margin-bottom: clamp(1rem, 3vw, 2rem);
+  margin-bottom: var(--spacing-sm);
   text-transform: uppercase;
-}
-
-/* ========== TARJETAS DE BEBIDAS ========== */
-.tarjetas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
-  gap: clamp(1rem, 3vw, 2rem);
-  margin-top: 2rem;
-}
-
-.tarjeta-bebida {
-  background: linear-gradient(135deg, var(--fondo-tarjeta) 0%, var(--fondo-tarjeta2) 100%);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: clamp(1rem, 3vw, 1.5rem);
-  border: 1px solid var(--verde-neon);
-  transform: translateY(0);
-  will-change: transform;
-  transition: all 0.3s ease;
-}
-
-.tarjeta-bebida:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 255, 98, 0.2);
-  border-color: #00ff62;
-}
-
-.tarjeta-bebida h3 {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
-  margin-bottom: 0.5rem;
-}
-
-
-.precio {
-  font-size: clamp(1.1rem, 3vw, 1.3rem);
-  font-weight: bold;
-  color: #00ff62;
-  display: block;
-  margin-top: auto;
 }
 
 .subtitulo {
   background: var(--fondo-navegador);
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-sm);
+  margin-top: var(--spacing-sm);
 }
 
-/* ========== SECCIÓN EVENTOS ========== */
+/* ========================================
+   GRID DE TARJETAS
+   ======================================== */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: var(--spacing-sm);
+  margin-top: 2rem;
+}
+
+/* ========================================
+   TARJETAS DE BEBIDAS
+   ======================================== */
+.tarjeta-bebida {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  background: linear-gradient(135deg, var(--fondo-tarjeta) 0%, var(--fondo-tarjeta2) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--verde-neon);
+  border-radius: 15px;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  transition: var(--transition-base);
+  will-change: transform;
+}
+
+.tarjeta-bebida:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: #ff00f2;
+}
+
+.tarjeta-bebida h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.tarjeta-bebida .precio {
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  color: var(--precio-color);
+  margin-top: auto;
+}
+
+/* ========================================
+   IMÁGENES DE PRODUCTOS
+   ======================================== */
+.producto {
+  width: 100%;
+  max-width: 260px;
+  height: 220px;
+  object-fit: contain;
+  margin: 0.5rem 0;
+  border-radius: 30px;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.6));
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* ========================================
+   SECCIÓN EVENTOS
+   ======================================== */
 .eventos {
   min-height: 300px;
-  /* Agrega estilos específicos para eventos aquí */
 }
 
-/* ========== RESPONSIVE ========== */
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
 @media (max-width: 768px) {
+  /* Grid */
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Navegación */
   .navegador {
     display: block;
     margin: 0.5rem auto;
     max-width: 200px;
   }
+  
+  /* Tarjetas */
+  .tarjeta-bebida {
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .tarjeta-bebida h3,
+  .tarjeta-bebida .precio {
+    padding: 0.8rem 1rem;
+    text-align: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    width: 100%;
+  }
+  
+  /* Productos */
+  .producto {
+    width: 100%;
+    height: 55vh;
+    max-width: none;
+    object-fit: contain;
+    margin: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
